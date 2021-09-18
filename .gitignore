@@ -18,3 +18,10 @@
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+
+
+###> eclipse ###
+.buildpath
+.project
+.settings/
+###< eclipse ###
