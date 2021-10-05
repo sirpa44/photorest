@@ -10,8 +10,6 @@ class PhotosController extends AbstractController
 {
     public function home(): Response
     {
-        return $this->render('photos/index.html.twig', [
-            'controller_name' => 'PhotosController',
-        ]);
+        return $this->render('photos/index.html.twig');
     }
 }
