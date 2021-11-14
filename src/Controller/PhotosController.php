@@ -4,12 +4,24 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\PinRepository;
 
 class PhotosController extends AbstractController
 {
+    /**
+     * @var PinRepository $pinRepository
+     */
+    protected $pinRepository; 
+    
+    public function __construct(PinRepository $pinRepository)
+    {
+        $this->pinRepository = $pinRepository;
+    }
+    
     public function home(): Response
     {
-        return $this->render('photos/index.html.twig');
+        $pins = $this->pinRepository->findAll();
+        
+        return $this->render('photos/index.html.twig', compact('pins'));
     }
 }
